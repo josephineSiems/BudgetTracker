@@ -1,0 +1,8 @@
+-10.0 Owl
++200.0 King
+-500.0 Geld
++900.0 Dinge
++400.0 Help
++66.0 mon
++70.0 junk
+-9.0 Smth

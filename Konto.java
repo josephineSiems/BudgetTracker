@@ -1,37 +1,22 @@
-/*Budget Tracking Program 
- * Lässt Nutzer Einnahmen und Ausgaben eintragen.
-*/
-
-package BudgetTracker;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class Konto{
-    float kontostand = 0;
+class Konto{
+    public float kontostand;
+    public String kontoName;
 
-    public static void main (String[] args)throws IOException{
-        Konto konto = new Konto();
-
-        konto.getKontoauszug(konto);
-        konto.getKontostand(konto);
-
-        Scanner in = new Scanner(System.in);
-
-        konto.askAusgaben(konto,in);
-        konto.askEinnahmen(konto,in);
-        konto.saveKontostand(konto);    
+    public Konto(String name, float kontoStand ){
+        kontostand = kontoStand;
+        kontoName = name;
     }
-
-
-
-    //fragt Kontostand ab und zeigt ihm Nutzer an
+    
+    
+    //fragt Kontostand ab und zeigt ihn dem Butzer an
     public void getKontostand(Konto konto)throws IOException{
         File file = new File("Kontostand.txt");
 
@@ -51,7 +36,7 @@ public class Konto{
             writer.close();
         }
 
-        //Kontostand wird Nutzer angezeigt
+        //Kontostand wird dem Benutzer angezeigt
         System.out.println("Kontostand: " + konto.kontostand);
     }
 
@@ -91,7 +76,7 @@ public class Konto{
         }
     }
 
-    //Fragt Nutzer ob er Einnahmen eintragen möchte
+    //Fragt Benutzer ob neue Einnahmen eingetragen werden sollen
     public void askEinnahmen(Konto konto, Scanner in)throws IOException{
         System.out.println("Neue Einahme: ");
         while(!(in.hasNextFloat())){
@@ -106,7 +91,6 @@ public class Konto{
                 String zweck = in.next();
                 konto.einzahlen(einnahme, zweck);
             }
-            in.close();
         }
     }
 
@@ -138,7 +122,6 @@ public class Konto{
 
     }
 
-
     //speichert Kontostand
     public void saveKontostand(Konto konto)throws IOException{
         System.out.println("Neuer Kontostand: " + konto.kontostand);
@@ -146,4 +129,4 @@ public class Konto{
         writer.write(String.valueOf(konto.kontostand));
         writer.close();
     }
-} 
+}
