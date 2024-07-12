@@ -18,12 +18,12 @@ public class BudgetTracker{
 
     public static void main (String[] args)throws IOException{
 
-        System.out.println("\nWillkommen beim BudgetTracker!");
-        System.out.println("Um eine neue Einzahlung einzutragen tippe 'einzahlung'");
-        System.out.println("Um eine neue Ausgabe einzutragen tippe 'ausgabe'");
-        System.out.println("Um Kontostand anzusehen tippe 'kontostand'");
-        System.out.println("Um Kontoauszug anzusehen tippe 'kontoauszug'");
-        System.out.println("Um das Programm zu beenden tippe 'ende' \n");
+        System.out.println("\nWelcome to BudgetTracker!");
+        System.out.println("To add a new earning, type '1'");
+        System.out.println("To add a new spending, type '2'");
+        System.out.println("To see your account balance '3'");
+        System.out.println("To see all past earnings and spendings, type '4'");
+        System.out.println("To close the program, type '5' \n");
 
         Konto konto = new Konto("name", 0.0f);
 
@@ -33,21 +33,21 @@ public class BudgetTracker{
 
         Boolean loop = true;
         while(loop){
-            if (input.equals("einzahlung")){
+            if (input.equals("1")){
                 konto.askEinnahmen(konto,in);
                 konto.saveKontostand(konto); 
-            }else if (input.equals("ausgabe")){
+            }else if (input.equals("2")){
                 konto.askAusgaben(konto,in);
                 konto.saveKontostand(konto); 
-            }else if (input.equals("kontostand")){
+            }else if (input.equals("3")){
                 konto.getKontostand(konto);
-            }else if (input.equals("kontoauszug")){
+            }else if (input.equals("4")){
                 konto.getKontoauszug(konto);
-            }else if (input.equals("ende")){
+            }else if (input.equals("5")){
                 //loop = false;
                 break;
             }else {
-                System.out.println("Ungültige Eingabe");
+                System.out.println("Invalid Command");
             }
             input = in.nextLine();
         }

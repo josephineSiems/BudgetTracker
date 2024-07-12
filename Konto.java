@@ -58,7 +58,7 @@ class Konto{
 
     //Fragt Nutzer ob er Ausgaben eintragen möchte
     public void askAusgaben(Konto konto, Scanner in)throws IOException{
-        System.out.println("Neue Ausgabe: ");
+        System.out.println("New spending: ");
 
         while(!(in.hasNextFloat())){
             System.out.println("Please type in a number!");
@@ -69,7 +69,7 @@ class Konto{
             float ausgabe = in.nextFloat();
 
             if (ausgabe != 0.0f){
-                System.out.println("Verwendungszweck: ");
+                System.out.println("Purpose: ");
                 String zweck = in.next();
                 konto.ausgeben(ausgabe, zweck);
             }
@@ -78,7 +78,7 @@ class Konto{
 
     //Fragt Benutzer ob neue Einnahmen eingetragen werden sollen
     public void askEinnahmen(Konto konto, Scanner in)throws IOException{
-        System.out.println("Neue Einahme: ");
+        System.out.println("New earning: ");
         while(!(in.hasNextFloat())){
             System.out.println("Please type in a number!");
             in.next();
@@ -87,7 +87,7 @@ class Konto{
             float einnahme = in.nextFloat();
 
             if (einnahme != 0.0f){
-                System.out.println("Verwendungszweck: ");
+                System.out.println("Purpose: ");
                 String zweck = in.next();
                 konto.einzahlen(einnahme, zweck);
             }
@@ -124,7 +124,7 @@ class Konto{
 
     //speichert Kontostand
     public void saveKontostand(Konto konto)throws IOException{
-        System.out.println("Neuer Kontostand: " + konto.kontostand);
+        System.out.println("New balance: " + konto.kontostand);
         BufferedWriter writer = new BufferedWriter(new FileWriter("Kontostand.txt", false));
         writer.write(String.valueOf(konto.kontostand));
         writer.close();
