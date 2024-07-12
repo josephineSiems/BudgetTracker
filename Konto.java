@@ -37,7 +37,7 @@ class Konto{
         }
 
         //Kontostand wird dem Benutzer angezeigt
-        System.out.println("Kontostand: " + konto.kontostand);
+        System.out.println("Account balance: " + konto.kontostand);
     }
 
     //Zeigt alle bisherigen Einnahmen und Ausgaben an
